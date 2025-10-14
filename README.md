@@ -80,6 +80,10 @@ Prerequisites
 
 -   Clerk account
 
+-   Cloudinary account
+
+-   MapMyIndia account
+
 Setup
 -----
 
