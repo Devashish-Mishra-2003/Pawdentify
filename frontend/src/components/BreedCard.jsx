@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import breedData from '../pawdentify_final_corrected.json';
+import { useBreedData } from '../contexts/BreedDataContext'; // ← NEW IMPORT
 
 const BreedCard = ({ breed, onClick, rank }) => {
   const { t } = useTranslation();
+  const breedData = useBreedData(); // ← USE CONTEXT HOOK
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -261,8 +262,3 @@ const BreedCard = ({ breed, onClick, rank }) => {
 };
 
 export default BreedCard;
-
-
-
-
-

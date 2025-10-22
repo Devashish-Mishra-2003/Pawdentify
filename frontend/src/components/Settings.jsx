@@ -10,9 +10,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 const LANG_OPTIONS = [
   { code: 'en', label: 'English' },
-  { code: 'hi', label: 'हिंदी' },
-  { code: 'ur', label: 'اردو' },
-  { code: 'fr', label: 'Français' },
+  { code: 'hi', label: 'हिंदी' }
 ];
 
 const Settings = ({ onBack }) => {

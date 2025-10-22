@@ -4,10 +4,10 @@ import { useAuth } from '@clerk/clerk-react';
 import { useTranslation } from 'react-i18next';
 import Fuse from 'fuse.js';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useBreedData } from '../contexts/BreedDataContext'; // ← NEW IMPORT
 import BreedCard from '../components/BreedCard';
 import BreedDetailModal from '../components/BreedDetailModal';
 import breedImages from '../data/breed_images.json';
-import BREEDS_JSON from '../pawdentify_final_corrected.json';
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
@@ -16,6 +16,7 @@ const SearchBreed = () => {
   const { getToken } = useAuth();
   const navigate = useNavigate();
   const inputRef = useRef(null);
+  const breedData = useBreedData(); // ← USE CONTEXT HOOK
 
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -37,7 +38,7 @@ const SearchBreed = () => {
 
   // Convert breed_images object to array for Fuse.js
   const breedsArray = Object.values(breedImages);
-  const ALL_BREEDS = Array.isArray(BREEDS_JSON) ? BREEDS_JSON : (BREEDS_JSON.breeds || []);
+  const ALL_BREEDS = Array.isArray(breedData) ? breedData : (breedData.breeds || []);
 
   // Featured breeds for initial display
   const FEATURED_BREEDS = [95, 26, 40, 77, 82, 55, 53, 64, 29, 25];
@@ -373,7 +374,7 @@ const SearchBreed = () => {
           ))}
         </motion.div>
 
-        {/* Filters Section (4 filters now) */}
+        {/* Filters Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -783,12 +784,3 @@ const SearchBreed = () => {
 };
 
 export default SearchBreed;
-
-
-
-
-
-
-
-
-

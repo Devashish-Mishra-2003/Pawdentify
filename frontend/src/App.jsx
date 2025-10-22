@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-ro
 import { SignedIn, SignedOut, RedirectToSignIn, AuthenticateWithRedirectCallback } from '@clerk/clerk-react';
 
 import { ThemeProvider } from './contexts/ThemeContext';
+import { BreedDataProvider } from './contexts/BreedDataContext'; // ← ADD THIS IMPORT
 import GlobalStyles from './components/GlobalStyles';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
@@ -21,7 +22,7 @@ const SignUpPage = lazy(() => import('./pages/SignUpPage'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Services = lazy(() => import('./pages/Services'));
 const AdminFeedback = lazy(() => import('./pages/AdminFeedback'));
-const SearchBreed = lazy(() => import('./pages/SearchBreed')); // <- NEW LINE ADDED
+const SearchBreed = lazy(() => import('./pages/SearchBreed'));
 
 const PREDICTION_STORAGE_KEY = 'pawdentify-current-prediction';
 
@@ -55,7 +56,6 @@ function SuspenseWrapper({ children, showHeaderFooter }) {
 // Helper component to detect when content is loaded
 function LoadingHandler({ children, setIsLoading }) {
   useEffect(() => {
-    // Small delay to ensure smooth transition
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 100);
@@ -164,8 +164,6 @@ const App = () => {
     return (
       <>
         <GlobalStyles />
-        
-        {/* Home page - no lazy loading, show immediately with header/footer */}
         {isHomePage ? (
           <Layout showHeaderFooter={true}>
             <Routes>
@@ -173,7 +171,6 @@ const App = () => {
             </Routes>
           </Layout>
         ) : (
-          /* Other pages - lazy load with full-page loader */
           <Suspense 
             fallback={
               <div style={{ minHeight: '100vh' }}>
@@ -186,13 +183,11 @@ const App = () => {
                 {/* Public Routes */}
                 <Route path="/know-more" element={<KnowMorePage />} />
                 <Route path="/faq" element={<FAQ />} />
-                <Route path="/search-breed" element={<SearchBreed />} /> {/* <- NEW LINE ADDED */}
-                
+                <Route path="/search-breed" element={<SearchBreed />} />
                 {/* Auth Routes */}
                 <Route path="/sign-in/*" element={<SignInPage />} />
                 <Route path="/sign-up/*" element={<SignUpPage />} />
                 <Route path="/sso-callback" element={<AuthenticateWithRedirectCallback />} />
-                
                 {/* Protected Routes */}
                 <Route 
                   path="/services" 
@@ -234,15 +229,16 @@ const App = () => {
     );
   }
 
+  // Wrap your app with BreedDataProvider here
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
+      <BreedDataProvider>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+      </BreedDataProvider>
     </ThemeProvider>
   );
 };
 
 export default App;
-
-

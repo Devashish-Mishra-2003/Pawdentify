@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import BREEDS_JSON from "../pawdentify_final_corrected.json";
+import { useBreedData } from "../contexts/BreedDataContext"; // ← NEW IMPORT
 import TextCard from "./cards/TextCard";
 import AccordionCard from "./cards/AccordionCard";
 import BreedTabs from "./BreedTabs";
@@ -55,12 +55,13 @@ function extractFunFact(breedEntry, t) {
 
 export default function BreedInfoDisplay({ predictionResult }) {
   const { t } = useTranslation();
+  const breedData = useBreedData(); // ← USE CONTEXT HOOK
   
   if (!predictionResult) return null;
 
   const navigate = useNavigate();
   const { id: predId, breed: predBreedName, previewUrl } = predictionResult;
-  const ALL_BREEDS = Array.isArray(BREEDS_JSON) ? BREEDS_JSON : (BREEDS_JSON.breeds || []);
+  const ALL_BREEDS = Array.isArray(breedData) ? breedData : (breedData.breeds || []);
   const breedEntry = useMemo(
     () => findBreedEntry(ALL_BREEDS, predId, predBreedName),
     [ALL_BREEDS, predId, predBreedName]
@@ -260,6 +261,7 @@ export default function BreedInfoDisplay({ predictionResult }) {
     </section>
   );
 }
+
 
 
 

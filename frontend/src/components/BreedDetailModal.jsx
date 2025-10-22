@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import BREEDS_JSON from '../pawdentify_final_corrected.json';
+import { useBreedData } from '../contexts/BreedDataContext'; // ← NEW IMPORT
 import breedImagesData from '../data/breed_images.json';
 import TextCard from './cards/TextCard';
 import AccordionCard from './cards/AccordionCard';
@@ -36,13 +36,14 @@ function extractFunFact(breedEntry, t) {
 export default function BreedDetailModal({ breedId, onClose }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  
+  const breedData = useBreedData(); // ← USE CONTEXT HOOK
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [activeTab, setActiveTab] = useState(TAB_SECTIONS[0].key);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const contentRef = useRef(null);
-  
-  const ALL_BREEDS = Array.isArray(BREEDS_JSON) ? BREEDS_JSON : (BREEDS_JSON.breeds || []);
+
+  const ALL_BREEDS = Array.isArray(breedData) ? breedData : (breedData.breeds || []);
   const breedEntry = useMemo(() => {
     return ALL_BREEDS.find((b) => String(b.id) === String(breedId) || Number(b.id) === Number(breedId));
   }, [ALL_BREEDS, breedId]);
@@ -56,11 +57,9 @@ export default function BreedDetailModal({ breedId, onClose }) {
 
   useEffect(() => {
     if (breedImages.length <= 1) return;
-
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % breedImages.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, [breedImages.length]);
 
@@ -70,7 +69,6 @@ export default function BreedDetailModal({ breedId, onClose }) {
         setShowBackToTop(contentRef.current.scrollTop > 300);
       }
     };
-
     const ref = contentRef.current;
     if (ref) {
       ref.addEventListener('scroll', handleScroll);
@@ -366,12 +364,3 @@ export default function BreedDetailModal({ breedId, onClose }) {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
