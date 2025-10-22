@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import { useTheme } from "../contexts/ThemeContext";
 import { SignedIn, SignedOut, useUser, useClerk } from "@clerk/clerk-react";
 import { motion, AnimatePresence } from 'framer-motion';
-import pawLogo from "../assets/PAWS_white_text.png";
 
 const handleScrollTo = (id) => {
   const el = document.getElementById(id.substring(1));
@@ -99,7 +98,7 @@ const Header = ({ showInfo }) => {
     <>
       <header className="header-root fixed top-0 left-0 w-full z-50 shadow-md">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center h-20">
-          {/* Logo */}
+          {/* Logo Text */}
           {onHome ? (
             <a
               href="#hero"
@@ -107,12 +106,18 @@ const Header = ({ showInfo }) => {
                 e.preventDefault();
                 handleScrollTo("#hero");
               }}
+              className="font-alfa font-bold text-xl sm:text-2xl tracking-wide cursor-pointer"
+              style={{ color: 'var(--color-nav-link)' }}
             >
-              <img src={pawLogo} alt={t("header.logoAlt")} className="w-40 sm:w-60 h-auto object-contain" />
+              AI Breed Classifier
             </a>
           ) : (
-            <Link to="/">
-              <img src={pawLogo} alt={t("header.logoAlt")} className="w-40 sm:w-60 h-auto object-contain" />
+            <Link 
+              to="/" 
+              className="font-alfa font-bold text-xl sm:text-2xl tracking-wide cursor-pointer"
+              style={{ color: 'var(--color-nav-link)' }}
+            >
+              AI Breed Classifier
             </Link>
           )}
 
@@ -351,7 +356,7 @@ const Header = ({ showInfo }) => {
           </div>
         </nav>
 
-        {/* Mobile Menu - ABSOLUTE POSITIONING */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -509,7 +514,4 @@ const Header = ({ showInfo }) => {
 };
 
 export default Header;
-
-
-
 

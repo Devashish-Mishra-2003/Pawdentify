@@ -191,8 +191,8 @@
     "title": "Frequently Asked Questions",
     "questions": {
       "whatIs": {
-        "question": "What is Pawdentify?",
-        "answer": "Pawdentify is an AI-powered dog breed identification app that helps you identify your dog's breed by uploading a photo."
+        "question": "What is AI Breed Classifier?",
+        "answer": "It is a AI-powered dog breed identification app that helps you identify your dog's breed by uploading a photo."
       },
       "accuracy": {
         "question": "How accurate is the breed prediction?",
@@ -270,13 +270,13 @@
       "breedsDatabase": "Breeds:",
       "breedsDatabaseCount": "120",
       "support": "Support:",
-      "supportEmail": "support@pawdentify.com"
+      "supportEmail": "support@aibreedclassifier.com"
     }
   },
   "auth": {
     "signUp": {
       "title": "Create Account",
-      "subtitle": "Join Pawdentify today",
+      "subtitle": "Join AI Breed Classifier today",
       "firstName": "First Name",
       "lastName": "Last Name",
       "email": "Email Address",
@@ -431,8 +431,8 @@
     "defaultBreed": "Breed"
   },
   "footer": {
-    "logo": "PAWDENTIFY",
-    "copyright": "PAWDENTIFY. All rights reserved.",
+    "logo": "AI Breed Classifier",
+    "copyright": "AI Breed Classifier. All rights reserved.",
     "navigation": {
       "title": "Navigation",
       "home": "Home",
@@ -440,7 +440,7 @@
     },
     "contact": {
       "title": "Contact",
-      "email": "support@paws.com",
+      "email": "support@aibreedclassifier.com",
       "phone": "+1 (555) 123-4567"
     }
   },

@@ -44,16 +44,14 @@ const Footer = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.div
-            className="flex items-center space-x-3 text-3xl font-archivo font-bold tracking-widest relative"
+            className="flex items-center space-x-3 text-2xl font-archivo font-bold tracking-wide relative"
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.2 }}
           >
-            <span>P</span>
-
             <motion.img
               src={paw}
               alt="paw"
-              className="w-14 h-14"
+              className="w-12 h-12"
               style={{ filter: 'brightness(0) invert(1)' }}
               whileHover={{
                 rotate: 360,
@@ -62,7 +60,7 @@ const Footer = () => {
               transition={{ duration: 0.4 }}
             />
 
-            <span>WDENTIFY</span>
+            <span>AI Breed Classifier</span>
           </motion.div>
 
           <motion.p
@@ -183,6 +181,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
 
 
