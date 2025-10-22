@@ -2,7 +2,7 @@ Download the Model from here : [Google Drive](https://drive.google.com/uc?export
 
 Add model in backend/app/model/[your model here]
 
-Pawdentify
+AI Breed Classifier
 ==========
 
 AI-powered dog breed identification and information platform
@@ -10,7 +10,7 @@ AI-powered dog breed identification and information platform
 Overview
 --------
 
-Pawdentify is a web application that uses artificial intelligence to identify dog breeds from images and provides comprehensive breed information. Built with React and FastAPI, it offers instant breed identification with 89% accuracy across 120+ breeds.
+AI Breed Classifier is a web application that uses artificial intelligence to identify dog breeds from images and provides comprehensive breed information. Built with React and FastAPI, it offers instant breed identification with 89% accuracy across 120+ breeds.
 
 Features
 --------
