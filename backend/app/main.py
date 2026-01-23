@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pathlib import Path
 from typing import Optional
+from .model_loader import download_model_from_s3
 
 from .preprocessing import preprocess_image_bytes, load_model_from_path, predict_top
 
@@ -16,8 +17,6 @@ from .routes import pets, history, settings, places, feedback, breeds  # <-- ADD
 # Load environment (expect backend/.env or backend/.env.example)
 BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(dotenv_path=BASE_DIR.parent.joinpath(".env"))
-
-MODEL_PATH = os.getenv("MODEL_PATH", str(BASE_DIR.joinpath("model/efficientnetv2b2_320.keras")))
 CONF_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", 0.4))
 
 BREED_INFO_PATH = BASE_DIR.joinpath("breed_info_final.json")
@@ -66,9 +65,9 @@ for item in BREED_JSON.get("breeds", []):
 # Load model
 MODEL = None
 try:
-    MODEL = load_model_from_path(MODEL_PATH)
+    model_path = download_model_from_s3()
+    MODEL = load_model_from_path(model_path)
 except Exception as e:
-    # keep MODEL as None; /predict will return 501 if model missing
     print("Model load failed:", e)
     MODEL = None
 

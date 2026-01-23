@@ -20,5 +20,6 @@ dependencies:
     - python-dotenv       # ← ADDED: For loading .env files
     - cloudinary
     - httpx
+    - boto3               # ← ADDED: AWS SDK for Python
 
 #these versions are required to simulate same environment as when model was trained using kaggle

@@ -109,7 +109,7 @@ const Header = ({ showInfo }) => {
               className="font-alfa font-bold text-xl sm:text-2xl tracking-wide cursor-pointer"
               style={{ color: 'var(--color-nav-link)' }}
             >
-              AI Breed Classifier
+              Pawdentify
             </a>
           ) : (
             <Link 
@@ -117,7 +117,7 @@ const Header = ({ showInfo }) => {
               className="font-alfa font-bold text-xl sm:text-2xl tracking-wide cursor-pointer"
               style={{ color: 'var(--color-nav-link)' }}
             >
-              AI Breed Classifier
+              Pawdentify
             </Link>
           )}
 
