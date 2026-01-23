@@ -71,16 +71,17 @@ graph TD
 
 ---
 
-## 📸 Screenshots
-<img width="1919" height="864" alt="Screenshot 2025-10-14 201236" src="https://github.com/user-attachments/assets/9374d337-dd56-446c-b680-3b7588229430" />
-<img width="1915" height="712" alt="Screenshot 2025-10-14 202714" src="https://github.com/user-attachments/assets/618458d9-50e5-47df-b6d9-7cc3f18daab9" />
-<img width="1919" height="854" alt="Screenshot 2025-10-14 202721" src="https://github.com/user-attachments/assets/a445e309-6aa8-410a-9224-ce559d3ba2fb" />
-<img width="1919" height="854" alt="Screenshot 2025-10-14 202727" src="https://github.com/user-attachments/assets/50a2bbdc-faff-446b-aa34-99985c2e4b04" />
-<img width="1919" height="857" alt="Screenshot 2025-10-14 202801" src="https://github.com/user-attachments/assets/807f3598-ea54-4b17-b1ea-33a3692dd4b1" />
-<img width="1919" height="862" alt="Screenshot 2025-10-14 202815" src="https://github.com/user-attachments/assets/820e8d7c-a791-499e-ab27-4d2101c654cf" />
-<img width="1918" height="852" alt="Screenshot 2025-10-14 202851" src="https://github.com/user-attachments/assets/67c92234-688b-4230-a027-4807bd732375" />
-<img width="1087" height="837" alt="Screenshot 2025-10-14 202903" src="https://github.com/user-attachments/assets/21135040-640a-4626-8483-406f3ae8d402" />
-<img width="1919" height="861" alt="Screenshot 2025-10-14 202844" src="https://github.com/user-attachments/assets/20117bff-2312-4659-bbdc-69417b12be1a" />
+## 📸 UI & Features Gallery
+
+| **Home & Landing** | **AI Breed Prediction** |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/9374d337-dd56-446c-b680-3b7588229430" width="400" /> | <img src="https://github.com/user-attachments/assets/618458d9-50e5-47df-b6d9-7cc3f18daab9" width="400" /> |
+| **Breed Identification Results** | **Detailed Breed Insights** |
+| <img src="https://github.com/user-attachments/assets/a445e309-6aa8-410a-9224-ce559d3ba2fb" width="400" /> | <img src="https://github.com/user-attachments/assets/50a2bbdc-faff-446b-aa34-99985c2e4b04" width="400" /> |
+| **Pet Profiles & Management** | **Health Tracking & Notes** |
+| <img src="https://github.com/user-attachments/assets/807f3598-ea54-4b17-b1ea-33a3692dd4b1" width="400" /> | <img src="https://github.com/user-attachments/assets/820e8d7c-a791-499e-ab27-4d2101c654cf" width="400" /> |
+| **Veterinary Locator (Map)** | **Mobile Responsive View** |
+| <img src="https://github.com/user-attachments/assets/67c92234-688b-4230-a027-4807bd732375" width="400" /> | <img src="https://github.com/user-attachments/assets/21135040-640a-4626-8483-406f3ae8d402" width="250" /> |
 
 ---
 
@@ -117,7 +118,7 @@ Since this project relies on specific Cloud Infrastructure (AWS, Clerk, MapMyInd
 2. Provide your own `.env` file based on the keys listed in the **Deployment Documentation**.
 3. Run the backend via `uvicorn` and frontend via `npm run dev`.
 
-*Note: For a full walkthrough of the infrastructure setup, please see the [Deployment & Infrastructure PDF](./Pawdentify – Deployment & Infrastructure Documentation.pdf) in the root directory.*
+*Note: For a full walkthrough of the infrastructure setup, please see the Pawdentify – Deployment & Infrastructure Documentation.pdf in the root directory.*
 
 ---
 
