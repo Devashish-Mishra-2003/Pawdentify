@@ -1,1 +1,1 @@
-export const DOG_PREDICT_API_URL = "http://localhost:8000/predict";
+export const DOG_PREDICT_API_URL = "https://pawdentify-backend.duckdns.org/predict";
