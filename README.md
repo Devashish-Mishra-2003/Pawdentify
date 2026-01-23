@@ -78,9 +78,9 @@ graph TD
 | <img src="https://github.com/user-attachments/assets/9374d337-dd56-446c-b680-3b7588229430" width="400" /> | <img src="https://github.com/user-attachments/assets/618458d9-50e5-47df-b6d9-7cc3f18daab9" width="400" /> |
 | **Breed Identification Results** | **Detailed Breed Insights** |
 | <img src="https://github.com/user-attachments/assets/a445e309-6aa8-410a-9224-ce559d3ba2fb" width="400" /> | <img src="https://github.com/user-attachments/assets/50a2bbdc-faff-446b-aa34-99985c2e4b04" width="400" /> |
-| **Pet Profiles & Management** | **Health Tracking & Notes** |
+| **Veterinary Locator (Map)** | **Breed Search & Ranking** |
 | <img src="https://github.com/user-attachments/assets/807f3598-ea54-4b17-b1ea-33a3692dd4b1" width="400" /> | <img src="https://github.com/user-attachments/assets/820e8d7c-a791-499e-ab27-4d2101c654cf" width="400" /> |
-| **Veterinary Locator (Map)** | **Mobile Responsive View** |
+| **Pet Profiles & Management** | **Health Tracking & Notes** |
 | <img src="https://github.com/user-attachments/assets/67c92234-688b-4230-a027-4807bd732375" width="400" /> | <img src="https://github.com/user-attachments/assets/21135040-640a-4626-8483-406f3ae8d402" width="250" /> |
 
 ---
