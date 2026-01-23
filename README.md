@@ -2,7 +2,6 @@
 
 [![Vercel](https://img.shields.io/badge/Frontend-Vercel-brightgreen?style=for-the-badge&logo=vercel)](https://pawdentify-frontend.vercel.app)
 [![AWS EC2](https://img.shields.io/badge/Backend-AWS_EC2-orange?style=for-the-badge&logo=amazonaws)](https://pawdentify-backend.duckdns.org)
-Download the Model from here : [Google Drive](https://drive.google.com/uc?export=download&id=1WD-V10oRMJxiPzJTa_hahGBeTsrXKjt-)
 
 **Pawdentify** is a production-grade full-stack platform that identifies 120+ dog breeds with **89% accuracy** and offers a comprehensive suite for pet health management. It bridges the gap between Deep Learning and user-centric design, providing a localized experience in 4 languages.
 
@@ -21,13 +20,28 @@ Download the Model from here : [Google Drive](https://drive.google.com/uc?export
 
 ```mermaid
 graph TD
-    User((User)) -->|HTTPS| Vercel[Vercel - React Frontend]
-    Vercel -->|API Requests| Nginx[Nginx Reverse Proxy]
-    Nginx -->|Route| FastAPI[FastAPI Backend - AWS EC2]
-    FastAPI -->|Download Model| S3[(AWS S3 - .keras Model)]
-    FastAPI -->|Auth Check| Clerk[Clerk Auth]
-    FastAPI -->|Query Data| MongoDB[(MongoDB Atlas)]
-    FastAPI -->|Store Images| Cloudinary[Cloudinary]
+    subgraph Client_Side [Frontend - Vercel]
+        User((User)) -->|Interacts| UI[React UI]
+        UI -->|Direct API Call| Maps[MapMyIndia SDK]
+    end
+
+    subgraph Server_Side [Backend - AWS EC2]
+        Nginx[Nginx Reverse Proxy] -->|Port 443 to 8000| FastAPI[FastAPI App]
+        
+        subgraph Persistent_Process [Tmux Session]
+            FastAPI
+            Init[Startup: Load Model] -.->|Once| S3[(AWS S3 - .keras)]
+            FastAPI --- LoadedModel[[Resident EfficientNetV2B2]]
+        end
+    end
+
+    subgraph External_Services [Cloud Services]
+        FastAPI -->|Auth| Clerk[Clerk Auth]
+        FastAPI -->|Data| Mongo[(MongoDB Atlas)]
+        FastAPI -->|Media| Cloudinary[Cloudinary]
+    end
+
+    UI -->|HTTPS Requests| Nginx
 ```
 
 ## 🌟 Features & Highlights
